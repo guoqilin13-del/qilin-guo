@@ -280,10 +280,26 @@
   .exp-link{display:flex;flex-direction:column;color:inherit;height:100%;}
   .exp-link:hover{color:inherit;}
 
-  /* 详情页图片画廊 */
-  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:0 0 46px;}
-  .gallery img{width:100%;border-radius:14px;border:1px solid var(--line);}
-  .gallery figcaption{text-align:center;font-size:12px;color:var(--text-2);margin-top:6px;}
+  /* 详情页图片画廊（单列放大，可点击查看大图） */
+  .gallery{display:grid;grid-template-columns:1fr;gap:18px;margin:0 0 46px;}
+  .gallery figure{margin:0;cursor:zoom-in;}
+  .gallery img{width:100%;border-radius:14px;border:1px solid var(--line);transition:opacity .2s ease;}
+  .gallery figure:hover img{opacity:.85;}
+  .gallery figcaption{text-align:center;font-size:12px;color:var(--text-2);margin-top:8px;}
+
+  /* 大图查看 lightbox */
+  .lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);display:grid;place-items:center;padding:32px;cursor:zoom-out;}
+  .lightbox img{max-width:100%;max-height:92vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  .lightbox .lb-close{position:absolute;top:16px;right:26px;color:#fff;font-size:40px;cursor:pointer;line-height:1;font-weight:300;}
+
+  /* 数据看板展示 */
+  .dashboard-box{background:var(--bg-gray);border-radius:18px;padding:24px;margin:0 0 46px;border:1px solid var(--line);}
+  .dashboard-box>a{display:block;}
+  .dashboard-box img{width:100%;border-radius:12px;border:1px solid var(--line);transition:opacity .2s ease;}
+  .dashboard-box>a:hover img{opacity:.85;}
+  .dash-cap{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .dash-cap b{font-size:18px;font-weight:600;letter-spacing:-0.01em;}
+  .dash-cap p{margin:6px 0 0;font-size:14px;color:var(--text-2);line-height:1.5;}
 
   /* ---------- 详情页配图 ---------- */
   .detail-figure{margin:0 0 46px;}
@@ -572,7 +588,13 @@
           { k: "全球", v: "统一追踪系统" },
           { k: "AI", v: "自动化工作流" },
           { k: "跨", v: "时区协调" }
-        ]
+        ],
+        dashboard: {
+          image: "images/img-017.png",
+          link: "dashboard.html",
+          title: "大里程测试数据看板",
+          desc: "整合飞书多维表格数据，搭建自动化大里程测试看板，跟踪各版本里程与泛化问题，用数据驱动项目推进。"
+        }
       },
       "intern-kucoin": {
         title: "KuCoin · 运营",
@@ -583,8 +605,8 @@
         lead: "运营 affiliate（联盟/KOL）计划，推动 20 万用户转化。",
         overview: "在 KuCoin 负责海外 affiliate（联盟/KOL）计划的运营支持，整理面向内容创作者的 onboarding 材料，编写功能 SOP，运营 X（推特）与 Telegram 全球社区，并通过量化增长与留存分析推动用户转化。",
         images: [
-          { src: "images/img-017.jpg", cap: "运营 X 账号" },
-          { src: "images/img-018.jpg", cap: "KOL Reward 指南" }
+          { src: "images/img-018.jpg", cap: "运营 X 账号" },
+          { src: "images/img-019.jpg", cap: "KOL Reward 指南" }
         ],
         points: [
           { t: "用户增长", d: "通过量化增长与留存分析，首月实现 200,000 活跃用户转化。" },
@@ -609,12 +631,12 @@
         lead: "运营真美诗官方微博，撰写鞋款昵称文案与赵露思合作传播。",
         overview: "在百丽国际负责真美诗（Joy & Peace）品牌的公关传播：运营官方微博、为马丁靴品类鞋款撰写「昵称」文案、协调赵露思合作传播，并管理 300K+ 粉丝社媒矩阵与 50+ KOL 视觉指南。",
         videos: [
-          { bvid: "BV1HbhP6ZEcJ", p: 1, title: "产品宣传视频 1", cover: "images/img-019.jpg" },
-          { bvid: "BV1NqhG6sENw", p: 1, title: "产品宣传视频 2", cover: "images/img-020.jpg" }
+          { bvid: "BV1HbhP6ZEcJ", p: 1, title: "产品宣传视频 1", cover: "images/img-020.jpg" },
+          { bvid: "BV1NqhG6sENw", p: 1, title: "产品宣传视频 2", cover: "images/img-021.jpg" }
         ],
         gallery: [
-          { src: "images/img-021.png", cap: "品牌定位与目标客群" },
-          { src: "images/img-022.png", cap: "产品线与价格策略" }
+          { src: "images/img-022.png", cap: "品牌定位与目标客群" },
+          { src: "images/img-023.png", cap: "产品线与价格策略" }
         ],
         points: [
           { t: "赵露思合作", d: "协调赵露思（Rosy Zhao）马丁靴合作 campaign，跨机构内容共创，推动销售增长。" },
@@ -630,12 +652,12 @@
           { k: "10+", v: "竞品 USP 分析" }
         ],
         namewall: [
-          { name: "日落时分", sku: "YZG11", line: "穿上它，如同踏上了一场追逐夕阳的旅程。", img: "images/img-023.png" },
-          { name: "飞奔向你", sku: "YZM08", line: "一份对爱的勇敢宣言，穿着漂亮的鞋去见喜欢的人。", img: "images/img-024.png" },
-          { name: "许愿池", sku: "YPU44", line: "连接愿望与现实，每一步都靠近闪耀的愿望。", img: "images/img-025.png" },
-          { name: "巴洛克舞会", sku: "YVA33", line: "珠光宝气、衣香鬓影，每一步都带着优雅与骄傲。", img: "images/img-026.png" },
-          { name: "小鹿靴", sku: "YZU04", line: "小鹿般轻盈，洋溢着自由与纯真的气息。", img: "images/img-027.png" },
-          { name: "自由诗篇", sku: "YPU44", line: "西部旷野的大地之色，无拘无束的自由风采。", img: "images/img-028.png" }
+          { name: "日落时分", sku: "YZG11", line: "穿上它，如同踏上了一场追逐夕阳的旅程。", img: "images/img-024.png" },
+          { name: "飞奔向你", sku: "YZM08", line: "一份对爱的勇敢宣言，穿着漂亮的鞋去见喜欢的人。", img: "images/img-025.png" },
+          { name: "许愿池", sku: "YPU44", line: "连接愿望与现实，每一步都靠近闪耀的愿望。", img: "images/img-026.png" },
+          { name: "巴洛克舞会", sku: "YVA33", line: "珠光宝气、衣香鬓影，每一步都带着优雅与骄傲。", img: "images/img-027.png" },
+          { name: "小鹿靴", sku: "YZU04", line: "小鹿般轻盈，洋溢着自由与纯真的气息。", img: "images/img-028.png" },
+          { name: "自由诗篇", sku: "YPU44", line: "西部旷野的大地之色，无拘无束的自由风采。", img: "images/img-029.png" }
         ]
       },
       "intern-turing": {
@@ -647,8 +669,8 @@
         lead: "产出 Meta 广告素材与 KOL 合作视频，用数据驱动投放策略。",
         overview: "在图灵协同负责社媒视频内容的策划与制作，每日产出短视频，系统化 A/B 测试优化内容表现，产出 Meta 平台广告素材与 KOL 合作视频，并通过后期数据分析调整投放策略，为早期品牌积累声量。",
         videos: [
-          { bvid: "BV1wthP6bEjz", p: 1, title: "Meta 平台广告素材", cover: "images/img-029.jpg" },
-          { bvid: "BV1wthP6bEzi", p: 1, title: "KOL 合作视频", cover: "images/img-030.jpg" }
+          { bvid: "BV1wthP6bEjz", p: 1, title: "Meta 平台广告素材", cover: "images/img-030.jpg" },
+          { bvid: "BV1wthP6bEzi", p: 1, title: "KOL 合作视频", cover: "images/img-031.jpg" }
         ],
         points: [
           { t: "短视频制作", d: "每日产出 5+ TikTok 短视频，系统化 A/B 测试滤镜与开头钩子（hooks），持续优化内容表现。" },
@@ -667,6 +689,16 @@
 
     var main = document.getElementById('view-main');
     var detail = document.getElementById('view-detail');
+
+    // 大图查看
+    function openLightbox(src){
+      var lb = document.createElement('div');
+      lb.className = 'lightbox';
+      lb.innerHTML = '<span class="lb-close">&times;</span><img src="' + src + '" alt="">';
+      lb.onclick = function(){ lb.remove(); };
+      document.body.appendChild(lb);
+    }
+    window.openLightbox = openLightbox;
 
     // 视频点击播放：把封面替换为 iframe
     function playVideo(el, bvid, p) {
@@ -703,7 +735,7 @@
       var gal = (d.gallery && d.gallery.length) ?
         '<div class="detail-section"><h2>项目资料</h2><div class="gallery">' +
           d.gallery.map(function(g){
-            return '<figure><img src="' + g.src + '" alt=""><figcaption>' + g.cap + '</figcaption></figure>';
+            return '<figure><img src="' + g.src + '" alt="' + g.cap + '" onclick="openLightbox(this.src)"><figcaption>' + g.cap + '</figcaption></figure>';
           }).join('') +
         '</div></div>' : '';
       // 3:4 图片画廊（KuCoin 类）
@@ -715,6 +747,8 @@
         '</div></div>' : '';
       // 结果图（Krewzer）
       var resImg = d.resultImage ? '<div class="detail-section"><figure class="detail-figure"><img src="' + d.resultImage + '" alt=""><figcaption>项目成果数据</figcaption></figure></div>' : '';
+      // 数据看板展示
+      var dash = d.dashboard ? '<div class="detail-section"><div class="dashboard-box"><a href="' + d.dashboard.link + '" target="_blank" rel="noreferrer"><img src="' + d.dashboard.image + '" alt="' + d.dashboard.title + '"></a><div class="dash-cap"><div><b>' + d.dashboard.title + '</b><p>' + d.dashboard.desc + '</p></div><a class="btn" href="' + d.dashboard.link + '" target="_blank" rel="noreferrer">打开看板</a></div></div></div>' : '';
       // 鞋款文案墙（带图片）
       var wall = (d.namewall && d.namewall.length) ?
         '<div class="detail-section"><h2>鞋款昵称文案</h2><div class="namewall">' +
@@ -745,6 +779,7 @@
             '<div class="detail-section"><h2>概览</h2><p class="detail-overview">' + d.overview + '</p></div>' +
             vids +
             '<div class="detail-section"><h2>做了什么</h2>' + pts + '</div>' +
+            dash +
             gal +
             '<div class="detail-section"><h2>结果</h2><div class="results">' + res + '</div></div>' +
             resImg +
