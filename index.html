@@ -519,7 +519,7 @@
         lead: "从内测到商业化，为独立音乐平台搭起增长引擎。",
         overview: "Krewzer 是一个反算法的独立音乐发现与投资社区，致力于解决「92% 流媒体播放被 1% 曲目垄断」的行业痛点。我参与它从 private beta 转向商业化的增长项目，用校园首发打开初始用户盘，再搭起可复用的增长引擎。",
         image: "images/img-008.png",
-        imageCap: "双 KPI 数据看板",
+        imageCap: "Power BI 看板 · 法国市场趋势追踪",
         gallery: [
           { src: "images/img-009.png", cap: "UX 测试：86% 品类过滤成功率" },
           { src: "images/img-010.png", cap: "品牌声音与增长引擎" },
@@ -747,6 +747,8 @@
         '</div></div>' : '';
       // 结果图（Krewzer）
       var resImg = d.resultImage ? '<div class="detail-section"><figure class="detail-figure"><img src="' + d.resultImage + '" alt=""><figcaption>项目成果数据</figcaption></figure></div>' : '';
+      // 单图配图（Krewzer 看板 / 地平线现场）
+      var fig = d.image ? '<figure class="detail-figure"><img src="' + d.image + '" alt=""><figcaption>' + (d.imageCap || '') + '</figcaption></figure>' : '';
       // 数据看板展示
       var dash = d.dashboard ? '<div class="detail-section"><div class="dashboard-box"><a href="' + d.dashboard.link + '" target="_blank" rel="noreferrer"><img src="' + d.dashboard.image + '" alt="' + d.dashboard.title + '"></a><div class="dash-cap"><div><b>' + d.dashboard.title + '</b><p>' + d.dashboard.desc + '</p></div><a class="btn" href="' + d.dashboard.link + '" target="_blank" rel="noreferrer">打开看板</a></div></div></div>' : '';
       // 鞋款文案墙（带图片）
@@ -776,6 +778,7 @@
         '<div class="detail-body">' +
           '<div class="wrap">' +
             imgs +
+            fig +
             '<div class="detail-section"><h2>概览</h2><p class="detail-overview">' + d.overview + '</p></div>' +
             vids +
             '<div class="detail-section"><h2>做了什么</h2>' + pts + '</div>' +
