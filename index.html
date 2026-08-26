@@ -75,17 +75,19 @@
   .nav-links a:hover{color:var(--text);}
 
   /* ---------- Hero ---------- */
-  .hero{background:var(--bg);padding:66px 0 54px;text-align:center;}
+  .hero{background:var(--bg);padding:66px 0 54px;text-align:center;position:sticky;top:48px;z-index:1;}
 
-  /* 六项专长覆盖动效：下滑时 skills 粘住覆盖 hero，上滑落下 */
+  /* 六项专长覆盖动效：下滑时 skills 从下往上覆盖 hero，上滑落下 */
   .hero-skills-wrap{position:relative;}
   #skills{
-    position:sticky;
-    top:48px;
-    z-index:20;
+    position:relative;
+    z-index:10;
     background:var(--bg-gray);
     border-radius:32px 32px 0 0;
-    box-shadow:0 -24px 48px -24px rgba(0,0,0,0.25);
+    box-shadow:
+      0 -18px 44px -12px rgba(0,113,227,0.40),
+      0 -42px 90px -20px rgba(140,108,255,0.42),
+      0 -8px 24px -6px rgba(56,182,209,0.35);
     padding-top:48px;
   }
   .hero-avatar{width:112px;height:112px;margin:0 auto 22px;border-radius:50%;
