@@ -154,7 +154,8 @@
     transition:transform .3s ease, box-shadow .3s ease;
   }
   .section-gray .exp-card{background:#fff;}
-  .exp-card:hover{transform:translateY(-6px);box-shadow:0 22px 46px -28px rgba(0,0,0,0.42);}
+  .exp-card:hover,.exp-card.reveal.in:hover{transform:translateY(-6px);box-shadow:0 22px 46px -28px rgba(0,0,0,0.42);}
+  .exp-card.reveal.in{transition:transform .25s ease, box-shadow .25s ease;}
   .exp-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;}
   .exp-role{font-size:18px;font-weight:600;letter-spacing:-0.015em;}
   .exp-year{font-size:13px;color:var(--text-2);font-variant-numeric:tabular-nums;white-space:nowrap;}
