@@ -90,6 +90,24 @@
       0 -8px 24px -6px rgba(56,182,209,0.35);
     padding-top:48px;
   }
+  #skills::before{
+    content:"";
+    position:absolute;
+    top:-5px;
+    left:-3px;
+    right:-3px;
+    height:9px;
+    border-radius:999px;
+    background:linear-gradient(90deg,#ff5fa2,#b45cff,#5c7cff,#38b6d1,#35c46a,#e0a63c,#ff5fa2);
+    background-size:400% 100%;
+    filter:blur(5px);
+    animation:rainbowGlow 3.5s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes rainbowGlow{
+    0%{background-position:0% 50%;}
+    100%{background-position:400% 50%;}
+  }
   .hero-avatar{width:112px;height:112px;margin:0 auto 22px;border-radius:50%;
     object-fit:cover;box-shadow:0 14px 30px -14px rgba(0,0,0,0.28);}
   .eyebrow{
@@ -527,6 +545,26 @@
         entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
       },{rootMargin:'0px 0px -8% 0px'});
       els.forEach(function(e){io.observe(e);});
+    })();
+
+    // hero 被覆盖时淡出缩小
+    (function(){
+      var hero = document.getElementById('top');
+      if(!hero) return;
+      var wrap = hero.querySelector('.wrap');
+      if(!wrap) return;
+      wrap.style.transformOrigin = 'center center';
+      function onScroll(){
+        var scrollY = window.scrollY;
+        var heroH = hero.offsetHeight || 1;
+        var progress = Math.max(0, Math.min(1, scrollY / heroH));
+        var opacity = Math.max(0, 1 - progress * 1.35);
+        var scale = Math.max(0.82, 1 - progress * 0.2);
+        wrap.style.opacity = opacity;
+        wrap.style.transform = 'scale(' + scale + ')';
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
     })();
 
     // 详情数据（项目 + 实习）
