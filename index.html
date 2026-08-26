@@ -82,7 +82,11 @@
   #skills{
     position:relative;
     z-index:10;
-    background:var(--bg-gray);
+    background:rgba(245,245,247,0.62);
+    backdrop-filter:blur(24px) saturate(180%);
+    -webkit-backdrop-filter:blur(24px) saturate(180%);
+    border:1px solid rgba(255,255,255,0.55);
+    border-bottom:none;
     border-radius:32px 32px 0 0;
     box-shadow:
       0 -18px 44px -12px rgba(0,113,227,0.40),
@@ -558,8 +562,8 @@
         var scrollY = window.scrollY;
         var heroH = hero.offsetHeight || 1;
         var progress = Math.max(0, Math.min(1, scrollY / heroH));
-        var opacity = Math.max(0, 1 - progress * 1.35);
-        var scale = Math.max(0.82, 1 - progress * 0.2);
+        var opacity = Math.max(0.12, 1 - progress * 1.35);
+        var scale = Math.max(0.86, 1 - progress * 0.16);
         wrap.style.opacity = opacity;
         wrap.style.transform = 'scale(' + scale + ')';
       }
