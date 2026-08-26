@@ -562,10 +562,11 @@
         var scrollY = window.scrollY;
         var heroH = hero.offsetHeight || 1;
         var progress = Math.max(0, Math.min(1, scrollY / heroH));
-        var opacity = Math.max(0.12, 1 - progress * 1.35);
-        var scale = Math.max(0.86, 1 - progress * 0.16);
+        var opacity = Math.max(0.08, 1 - progress * 1.4);
+        var scale = Math.max(0.7, 1 - progress * 0.32);
+        var ty = -progress * 36;
         wrap.style.opacity = opacity;
-        wrap.style.transform = 'scale(' + scale + ')';
+        wrap.style.transform = 'scale(' + scale + ') translateY(' + ty + 'px)';
       }
       window.addEventListener('scroll', onScroll, {passive:true});
       onScroll();
