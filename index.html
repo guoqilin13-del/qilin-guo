@@ -24,7 +24,7 @@
   html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-padding-top:56px;}
   body{
     margin:0;min-width:320px;
-    background:var(--bg);
+    background:var(--bg-gray);
     color:var(--text);
     font-family:var(--font);
     font-size:17px;line-height:1.47;
@@ -75,14 +75,14 @@
   .nav-links a:hover{color:var(--text);}
 
   /* ---------- Hero ---------- */
-  .hero{background:var(--bg);padding:66px 0 54px;text-align:center;position:sticky;top:48px;z-index:1;min-height:calc(100vh - 48px);display:flex;flex-direction:column;justify-content:center;}
+  .hero{background:var(--bg-gray);padding:66px 0 54px;text-align:center;position:sticky;top:48px;z-index:1;min-height:calc(100vh - 48px);display:flex;flex-direction:column;justify-content:center;}
 
   /* 六项专长覆盖动效：下滑时 skills 从下往上覆盖 hero，上滑落下 */
   .hero-skills-wrap{position:relative;}
   #skills{
     position:relative;
     z-index:10;
-    background:rgba(245,245,247,0.3);
+    background:rgba(255,255,255,0.9);
     backdrop-filter:blur(30px) saturate(180%);
     -webkit-backdrop-filter:blur(30px) saturate(180%);
     border:3px solid rgba(255,255,255,0.35);
