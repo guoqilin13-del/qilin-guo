@@ -75,16 +75,17 @@
   .nav-links a:hover{color:var(--text);}
 
   /* ---------- Hero ---------- */
-  .hero{background:var(--bg);padding:66px 0 54px;text-align:center;position:sticky;top:48px;z-index:1;}
+  .hero{background:var(--bg);padding:66px 0 54px;text-align:center;position:sticky;top:48px;z-index:1;min-height:calc(100vh - 48px);display:flex;flex-direction:column;justify-content:center;}
+  .hero-emojis{font-size:26px;margin-top:26px;letter-spacing:12px;opacity:0.85;}
 
   /* 六项专长覆盖动效：下滑时 skills 从下往上覆盖 hero，上滑落下 */
   .hero-skills-wrap{position:relative;}
   #skills{
     position:relative;
     z-index:10;
-    background:rgba(245,245,247,0.45);
-    backdrop-filter:blur(20px) saturate(170%);
-    -webkit-backdrop-filter:blur(20px) saturate(170%);
+    background:rgba(245,245,247,0.3);
+    backdrop-filter:blur(30px) saturate(180%);
+    -webkit-backdrop-filter:blur(30px) saturate(180%);
     border:3px solid rgba(255,255,255,0.35);
     border-radius:36px;
     box-shadow:
@@ -380,6 +381,7 @@
         <a class="btn-ghost" href="#contact">联系我</a>
       </div>
       <div><span class="avail">2027 应届 · 求职中</span></div>
+      <div class="hero-emojis">🎯 ✨ 📊 📱 🌍 🚀</div>
     </div>
   </header>
 
